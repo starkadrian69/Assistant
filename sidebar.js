@@ -3,7 +3,8 @@ const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 const resetBtn = document.getElementById("resetBtn");
 
-const GROQ_API_KEY = process.env.GROQ_API_KEY;
+const GROQ_API_KEY =
+  typeof window !== "undefined" && window.__GROQ_API_KEY__ ? window.__GROQ_API_KEY__ : "";
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 const GROQ_RESPONSES_URL = "https://api.groq.com/openai/v1/responses";
 const GROQ_PRIMARY_TEXT_MODEL = "openai/gpt-oss-120b";

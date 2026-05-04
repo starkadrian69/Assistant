@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "ByteXL Assistant",
+  "version": "1.0",
+  "description": "Automates MCQs and coding problems on ByteXL",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "sidePanel",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.bytexl.app/*",
+    "https://*.bytexl.com/*",
+    "https://*.embd.in/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.bytexl.app/*",
+        "https://*.bytexl.com/*",
+        "https://*.embd.in/*"
+      ],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "action": {
+    "default_title": "ByteXL Assistant"
+  }
+}
